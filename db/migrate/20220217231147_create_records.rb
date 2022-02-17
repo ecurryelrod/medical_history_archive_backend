@@ -9,6 +9,7 @@ class CreateRecords < ActiveRecord::Migration[6.1]
       t.string :medications
       t.text :med_notes
       t.text :comments
+      t.belongs_to :category, null: false, foreign_key: true
 
       t.timestamps
     end
