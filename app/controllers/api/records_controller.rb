@@ -3,24 +3,24 @@ class Api::RecordsController < ApplicationController
 
   # GET /records
   def index
-    @records = Record.all
+    records = Record.all
 
-    render json: @records
+    render json: RecordSerializer.new(records)
   end
 
   # GET /records/1
   def show
-    render json: @record
+    render json: RecordSerializer.new(@record)
   end
 
   # POST /records
   def create
-    @record = Record.new(record_params)
+    record = Record.new(record_params)
 
-    if @record.save
-      render json: @record, status: :created, location: @record
+    if record.save
+      render json: record, status: :created, location: record
     else
-      render json: @record.errors, status: :unprocessable_entity
+      render json: record.errors, status: :unprocessable_entity
     end
   end
 

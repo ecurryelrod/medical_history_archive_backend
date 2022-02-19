@@ -3,24 +3,24 @@ class Api::CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.all
+    categories = Category.all
 
-    render json: @categories
+    render json: CategorySerializer.new(categories)
   end
 
   # GET /categories/1
   def show
-    render json: @category
+    render json: CategorySerializer.new(@category)
   end
 
   # POST /categories
   def create
-    @category = Category.new(category_params)
+    category = Category.new(category_params)
 
-    if @category.save
-      render json: @category, status: :created, location: @category
+    if category.save
+      render json: category, status: :created, location: category
     else
-      render json: @category.errors, status: :unprocessable_entity
+      render json: category.errors, status: :unprocessable_entity
     end
   end
 
