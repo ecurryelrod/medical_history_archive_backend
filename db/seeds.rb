@@ -11,7 +11,7 @@ Category.create([
         {name: 'ER/Hospital'},
         {name: 'Physical Therapist'},
         {name: 'Occupational Therapist'},
-        {name: 'Speach Therapist'},
+        {name: 'Speech Therapist'},
         {name: 'Caregiver'},
         {name: 'Psychiatrist'},
         {name: 'Surgery'},
