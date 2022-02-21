@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Category.create([
-        {name: 'Primary Doctor'},
+        {name: 'Primary Care Doctor'},
         {name: 'ER/Hospital'},
         {name: 'Physical Therapist'},
         {name: 'Occupational Therapist'},
@@ -19,3 +19,15 @@ Category.create([
         {name: 'Heart Doctor'},
         {name: 'Blood Doctor'}
 ])
+
+Record.create(
+        doc_name: 'Test Doc', 
+        practice_name: 'Test Practice', 
+        url: 'www.gonowhere.com', 
+        date: '2022-02-23', 
+        phone: 5552345678, 
+        medications: 'med 1, med 2, med 3',
+        med_notes: 'med 1: take once a day on empty stomach, med 2: take 3 times a day with food, med 3: take 3 times a day with food',
+        comments: 'everything looks good',
+        category_id: 1
+)

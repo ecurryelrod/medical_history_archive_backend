@@ -1,4 +1,4 @@
 class CategorySerializer
   include JSONAPI::Serializer
-  attributes :name
+  attributes :name, :records
 end
