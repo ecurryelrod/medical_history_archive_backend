@@ -1,16 +1,18 @@
-class Api::RecordsController < ApplicationController
+class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :update, :destroy]
 
   # GET /records
   def index
     records = Record.all
 
-    render json: RecordSerializer.new(records)
+    # render json: RecordSerializer.new(records)
+    render json: records
   end
 
   # GET /records/1
   def show
-    render json: RecordSerializer.new(@record)
+    # render json: RecordSerializer.new(@record)
+    render json: @record
   end
 
   # POST /records
@@ -18,7 +20,7 @@ class Api::RecordsController < ApplicationController
     record = Record.new(record_params)
 
     if record.save
-      render json: record, status: :created, location: record
+      render json: RecordSerializer.new(record), status: :created, location: record
     else
       render json: record.errors, status: :unprocessable_entity
     end
