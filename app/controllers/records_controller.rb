@@ -37,7 +37,11 @@ class RecordsController < ApplicationController
 
   # DELETE /records/1
   def destroy
-    @record.destroy
+    if @record.destroy
+      render json: {message: 'Record successfully deleted'}
+    else
+      render json: {message: "#{@record.errors.full_messages}"}
+    end
   end
 
   private
